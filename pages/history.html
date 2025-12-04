@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esprit - Historique</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-gray-50">
+
+<aside class="fixed inset-y-0 left-0 w-64 bg-[#D2232A] text-white flex flex-col z-50">
+  <div class="h-20 flex items-center px-6">
+    <img src="../assets/images/esprit.png" alt="Esprit" class="h-16" />
+  </div>
+  <nav class="flex-1 px-4 space-y-2 mt-4">
+          <a
+            href="./Dashboard.html"
+            class="flex items-center px-4 py-3 text-white rounded-lg shadow-sm group transition-all duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              ></path>
+            </svg>
+            <span class="font-semibold">Tableau de bord</span>
+          </a>
+
+          <a
+            href="./list-complaints.html"
+            class="flex items-center px-4 py-3 text-white hover:bg-white/10 rounded-lg transition-all duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
+            </svg>
+            <span class="font-medium">Liste des réclamations</span>
+          </a>
+
+          <a
+            href="./history.html"
+            class="flex items-center px-4 py-3 bg-white text-[#D2232A] hover:bg-white/10 rounded-lg transition-all duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span class="font-medium">Historique</span>
+          </a>
+        </nav>
+  <div class="p-6 text-center text-xs opacity-90">© 2025 Esprit</div>
+</aside>
+
+<div class="ml-64 min-h-screen">
+  <header class="bg-white border-b px-10 py-6 flex justify-between items-center">
+    <h1 class="text-3xl font-bold text-gray-800">Historique</h1>
+    <div class="flex items-center gap-6">
+      <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold shadow-md">
+        Nouvelle réclamation
+      </button>
+      <button class="relative"><i class="far fa-bell text-2xl text-red-600"></i><span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">3</span></button>
+      <button><i class="fas fa-cog text-2xl text-gray-600"></i></button>
+      <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700">WJ</div>
+    </div>
+  </header>
+
+  <main class="p-10">
+    <div class="bg-white rounded-3xl shadow-lg">
+      <div class="p-8 border-b">
+        <div class="relative max-w-xl mx-auto">
+          <input type="text" placeholder="Rechercher des réclamations" class="w-full pl-14 pr-6 py-5 bg-gray-100 rounded-full">
+          <i class="fas fa-search absolute left-10 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-gray-50 text-sm font-bold text-gray-500 uppercase">
+            <tr>
+              <th class="px-8 py-5 text-left">Titre</th>
+              <th class="px-8 py-5 text-left">Email</th>
+              <th class="px-8 py-5 text-left">Nombre</th>
+              <th class="px-8 py-5 text-left">Priorité</th>
+              <th class="px-8 py-5 text-left">Statut</th>
+              <th class="px-8 py-5 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 text-sm">
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Problème de livraison résolu</td><td class="px-8 py-6 text-gray-600">mohamed.a@esprit.tn</td><td class="px-8 py-6 text-center">45</td><td class="px-8 py-6 text-center text-green-600 font-medium">Faible</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Retour accepté</td><td class="px-8 py-6 text-gray-600">salma.b@gmail.com</td><td class="px-8 py-6 text-center">23</td><td class="px-8 py-6 text-center text-orange-600 font-medium">Moyenne</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Paiement remboursé</td><td class="px-8 py-6 text-gray-600">ali.h@esprit.tn</td><td class="px-8 py-6 text-center">67</td><td class="px-8 py-6 text-center text-green-600 font-medium">Faible</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td计数></tr>
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Compte réactivé</td><td class="px-8 py-6 text-gray-600">rania.k@gmail.com</td><td class="px-8 py-6 text-center">12</td><td class="px-8 py-6 text-center text-green-600 font-medium">Faible</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Produit remplacé</td><td class="px-8 py-6 text-gray-600">omar.s@esprit.tn</td><td class="px-8 py-6 text-center">89</td><td class="px-8 py-6 text-center text-orange-600 font-medium">Moyenne</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Support technique</td><td class="px-8 py-6 text-gray-600">ines.m@gmail.com</td><td class="px-8 py-6 text-center">156</td><td class="px-8 py-6 text-center text-red-600 font-medium">Élevée</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Commande livrée</td><td class="px-8 py-6 text-gray-600">yassine.t@esprit.tn</td><td class="px-8 py-6 text-center">234</td><td class="px-8 py-6 text-center text-orange-600 font-medium">Moyenne</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-8 py-6 font-medium">Problème résolu</td><td class="px-8 py-6 text-gray-600">nadia.r@gmail.com</td><td class="px-8 py-6 text-center">78</td><td class="px-8 py-6 text-center text-green-600 font-medium">Faible</td><td class="px-8 py-6 text-center"><span class="bg-yellow-100 text-yellow-700 px-6 py-2 rounded-full text-xs font-medium">Terminée</span></td><td class="px-8 py-6 text-center space-x-5 text-gray-400"><a href="details.html"><i class="far fa-eye hover:text-blue-600"></i></a><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="px-8 py-6 border-t flex justify-between items-center text-sm text-gray-600">
+        <span>Éléments par page 8</span>
+        <div class="flex gap-2">
+          <button class="p-2 hover:bg-gray-100 rounded">Previous</button>
+          <button class="w-10 h-10 bg-red-600 text-white rounded font-bold">1</button>
+          <button class="p-2 hover:bg-gray-100 rounded">Next</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+  // Mobile menu toggle
+  document.getElementById('open-menu')?.addEventListener('click', () => {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('overlay').classList.remove('hidden');
+  });
+
+  document.getElementById('close-menu')?.addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.add('hidden');
+  });
+
+  document.getElementById('overlay')?.addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.add('hidden');
+  });
+
+  // Active menu highlight (only one white at a time)
+  const links = document.querySelectorAll('.sidebar-link');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      links.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

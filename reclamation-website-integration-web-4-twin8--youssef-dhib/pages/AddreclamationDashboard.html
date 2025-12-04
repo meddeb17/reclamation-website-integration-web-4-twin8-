@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nouvelle réclamation - Esprit</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Mobile Overlay -->
+      <div
+        id="mobile-overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"
+      ></div>
+
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-50 w-64 bg-[#D2232A] text-white transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex flex-col"
+      >
+        <!-- Logo Area -->
+        <div class="h-20 flex items-center px-6">
+          <img
+            src="../assets/images/esprit.png"
+            alt="Esprit Logo"
+            class="h-16"
+          />
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-4 space-y-2 mt-4">
+          <a
+            href="./Dashboard.html"
+            class="flex items-center px-4 py-3 text-white hover:bg-white/10 rounded-lg transition-all duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              ></path>
+            </svg>
+            <span class="font-medium">Tableau de bord</span>
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-4 py-3 bg-white text-[#D2232A] rounded-lg shadow-sm group transition-all duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
+            </svg>
+            <span class="font-semibold">Liste des réclamations</span>
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center px-4 py-3 text-white hover:bg-white/10 rounded-lg transition-all duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span class="font-medium">Historique</span>
+          </a>
+        </nav>
+
+        <!-- Decorative Bottom Circles & Chat Icon -->
+        <div class="relative h-32 w-full overflow-hidden mt-auto">
+          <div
+            class="absolute -bottom-12 -left-12 w-48 h-48 border-[6px] border-white/20 rounded-full"
+          ></div>
+          <div
+            class="absolute -bottom-20 -left-20 w-72 h-72 border-[6px] border-white/10 rounded-full"
+          ></div>
+
+          <div class="absolute bottom-6 left-6">
+            <div class="bg-white/20 p-2 rounded-full backdrop-blur-sm">
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content Wrapper -->
+      <div class="flex-1 flex flex-col min-w-0 bg-white">
+        <!-- Header -->
+        <header
+          class="h-20 border-b border-gray-100 flex items-center justify-between px-8 bg-white"
+        >
+          <div class="flex items-center">
+            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobile-menu-btn"
+              class="md:hidden mr-4 text-gray-500 hover:text-[#D2232A]"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+
+            <div class="flex items-center text-gray-500">
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                ></path>
+              </svg>
+              <span class="text-lg font-medium text-gray-700"
+                >Nouvelle réclamation</span
+              >
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-6">
+            <button
+              class="text-[#D2232A] hover:text-[#a01b20] transition-colors relative"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                ></path>
+              </svg>
+            </button>
+
+            <button
+              class="text-[#D2232A] hover:text-[#a01b20] transition-colors"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                ></path>
+              </svg>
+            </button>
+
+            <div
+              class="h-10 w-10 rounded bg-[#D2232A] flex items-center justify-center text-sm font-bold text-white"
+            >
+              TA
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Scrollable Area -->
+        <main class="flex-1 overflow-y-auto p-8 bg-white">
+          <!-- Top Card -->
+          <div
+            class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-6"
+          >
+            <h2 class="text-[#D2232A] font-bold text-lg mb-6">
+              Détails de la réclamation
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Row 1 -->
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Nom du client</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Numéro de réclamation</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Date de réclamation</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+
+              <!-- Row 2: Description (2 cols) + Inputs (1 col stacked) -->
+              <div class="md:col-span-2 md:row-span-2">
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Description du problème</label
+                >
+                <textarea
+                  class="w-full h-[calc(100%-1.75rem)] border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all resize-none"
+                  rows="5"
+                ></textarea>
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Numéro de téléphone</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >E-mail</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+
+              <!-- Row 3 -->
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Catégorie de la réclamation</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Statut de la réclamation</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-500 mb-1"
+                  >Résolution</label
+                >
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Section -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Bottom Left Card -->
+            <div
+              class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col"
+            >
+              <h2 class="text-[#D2232A] font-bold text-lg mb-6">
+                Télécharger le logo
+              </h2>
+
+              <div class="space-y-6 flex-1">
+                <div>
+                  <label class="block text-sm font-bold text-gray-500 mb-2"
+                    >Sélectionner le fichier</label
+                  >
+                  <button
+                    class="bg-[#D2232A] text-white px-4 py-2 rounded-lg hover:bg-[#b01e24] transition-colors flex items-center font-medium"
+                  >
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                      ></path>
+                    </svg>
+                    Sélectionner un fichier
+                  </button>
+                  <div class="mt-2 text-sm text-gray-400">
+                    <p class="flex items-center">
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        ></path>
+                      </svg>
+                      logo.jpg
+                    </p>
+                    <p>jpg/png files with a size less than 500kb</p>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-500 mb-1"
+                    >Adresse</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#D2232A] focus:border-transparent outline-none transition-all"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="flex justify-end space-x-4 mt-8 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="px-4 py-2 border border-gray-200 text-[#D2232A] rounded-lg hover:bg-gray-50 font-medium flex items-center"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      // Mobile Sidebar Toggle Logic
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const sidebar = document.getElementById("sidebar");
+      const mobileOverlay = document.getElementById("mobile-overlay");
+
+      function toggleSidebar() {
+        sidebar.classList.toggle("-translate-x-full");
+        mobileOverlay.classList.toggle("hidden");
+      }
+
+      mobileMenuBtn.addEventListener("click", toggleSidebar);
+      mobileOverlay.addEventListener("click", toggleSidebar);
+    </script>
+  </body>
+</html>

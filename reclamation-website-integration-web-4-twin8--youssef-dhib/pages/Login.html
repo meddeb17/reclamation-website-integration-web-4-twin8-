@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion - ESPRIT</title>
+
+    <!-- Import Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-white font-sans">
+    <div class="flex min-h-screen w-full justify-center">
+      <!-- LEFT SIDE – LOGIN FORM -->
+      <div class="w-full lg:w-1/2 flex items-center justify-center px-6 py-10">
+        <div class="max-w-md w-full space-y-6">
+          <!-- Logo -->
+          <img
+            src="../assets/images/esprit.png"
+            class="h-12 mx-auto mb-8"
+            alt="Logo de l'université ESPRIT"
+          />
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+            Connexion
+          </h2>
+
+          <!-- Form -->
+          <form id="loginForm" class="space-y-5">
+            <div>
+              <label class="text-sm font-medium text-gray-700" for="emailInput"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="emailInput"
+                class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none"
+                placeholder="Entrer votre email"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                class="text-sm font-medium text-gray-700"
+                for="passwordInput"
+                >Mot de passe</label
+              >
+              <div class="relative">
+                <input
+                  type="password"
+                  id="passwordInput"
+                  class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  placeholder="••••••••"
+                  required
+                />
+                <span
+                  class="absolute right-3 top-3 text-gray-500 cursor-pointer eye-icon"
+                  aria-label="Afficher/Masquer le mot de passe"
+                >
+                  👁️
+                </span>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-md font-semibold transition"
+            >
+              Se connecter
+            </button>
+          </form>
+
+          <!-- Bottom links -->
+          <div class="flex justify-between mt-4 text-sm font-medium">
+            <a href="#" class="text-red-600 hover:underline"
+              >Mot de passe oublié ?</a
+            >
+            <a href="#" class="text-red-600 hover:underline"
+              >Vous n'avez pas de compte ?</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE – IMAGE + BRAND -->
+      <div
+        class="hidden lg:flex w-1/2 bg-red-600 relative items-center justify-center"
+      >
+        <img
+          src="../assets/images/login.jpg"
+          class="w-full h-full object-cover opacity-80"
+          alt="Campus de l'université ESPRIT"
+        />
+      </div>
+    </div>
+
+    <script>
+      // Toggle password visibility
+      document
+        .querySelector(".eye-icon")
+        .addEventListener("click", function () {
+          const passwordField = document.querySelector(
+            'input[type="password"]'
+          );
+          const type = passwordField.type === "password" ? "text" : "password";
+          passwordField.type = type;
+        });
+
+      // Form submission logic
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get the value of the email input
+          const email = document
+            .getElementById("emailInput")
+            .value.trim()
+            .toLowerCase();
+
+          // Redirection logic based on the email entered
+          if (email === "youssef.dhib@esprit.tn") {
+            window.location.href = "dashboard.html";
+          } else if (email === "abdou.jlassi@esprit.tn") {
+            window.location.href = "claim-details-user.html";
+          } else {
+            alert("Email non reconnu.");
+          }
+        });
+    </script>
+  </body>
+</html>

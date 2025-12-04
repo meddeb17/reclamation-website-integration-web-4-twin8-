@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Détails de réclamation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts: Poppins, Arimo, Inter (from Figma) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled Tailwind CSS (generated via Tailwind CLI) -->
+    <link rel="stylesheet" href="../css/claim_styles.css" />
+  </head>
+  <body class="min-h-screen bg-[#FFFFFF] text-[#000000]">
+    <div
+      class="flex min-h-screen w-full justify-center bg-[#FFFFFF] px-[20px] py-[10px]"
+    >
+      <div
+        class="flex w-full max-w-[1440px] flex-col items-center gap-[24px] font-['Inter']"
+      >
+        <!-- Header / Navbar -->
+        <header
+          class="flex w-full max-w-[1290px] flex-col items-start gap-[10px] rounded-[30px] px-[10px] py-[10px]"
+        >
+          <div
+            class="flex w-full max-w-[1270px] flex-wrap items-center justify-between gap-6 rounded-[15px] bg-[#FFFFFF] px-[20px] py-[20px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] backdrop-blur-[2px] md:flex-nowrap md:px-[59px]"
+          >
+            <div
+              class="flex w-full items-center justify-between gap-[40px]"
+            >
+              <!-- Left: university logo -->
+              <div
+                class="h-[60px] w-[120px] bg-[url('images/esprit.png')] bg-contain bg-center bg-no-repeat sm:h-[80px] sm:w-[140px] md:h-[108px] md:w-[153px]"
+              ></div>
+
+              <!-- Center: nav -->
+              <nav
+                class="flex flex-1 items-center justify-center gap-[40px] text-sm text-[#1E1E1E]"
+              >
+                <a href="#" class="font-['Poppins']">Accueil</a>
+                <span
+                  class="rounded-[9px] bg-[rgba(241,235,235,0.8)] px-4 py-1 text-center font-['Poppins'] shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                  >Réclamations</span
+                >
+                <a href="#" class="font-['Poppins']">Historique</a>
+                <a href="#" class="font-['Poppins']">Support Chat</a>
+              </nav>
+
+              <!-- Right: notification + user avatar -->
+              <div class="flex items-center gap-[15px]">
+                <button
+                  class="flex h-[39px] w-[39px] items-center justify-center rounded-full border border-[#F1F1F1] bg-white text-lg text-black"
+                  aria-label="Notifications"
+                >
+                  <div
+                    class="flex h-[20px] w-[20px] items-center justify-center rounded bg-[url('icons/notif_bell.png')] bg-contain bg-center bg-no-repeat text-[10px] font-medium text-gray-700"
+                  ></div>
+                </button>
+                <div
+                  class="h-[36px] w-[36px] rounded-full bg-[url('images/user_avatar.jpg')] bg-cover bg-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main
+          class="flex w-full max-w-[1024px] flex-col items-center gap-[24.8px]"
+        >
+          <!-- Claim details -->
+          <section
+            class="flex w-full max-w-[992px] flex-col gap-[16px] rounded-[20px]  bg-white px-[24.8px] pt-[24.8px] pb-[16px]"
+          >
+              <div class="flex flex-wrap items-center justify-between gap-4">
+              <h1
+                class="font-['Arimo'] text-xl font-semibold text-black sm:text-2xl"
+              >
+                Details du reclamation : “Problème de facturation”
+              </h1>
+              <span class="flex items-center gap-3">
+                <div
+                  class="flex h-[43px] w-[43px] items-center justify-center rounded bg-[url('icons/csv.png')] bg-contain bg-center bg-no-repeat text-[10px] font-medium text-gray-700"
+                ></div>
+                <div
+                  class="flex h-[43px] w-[43px] items-center justify-center rounded bg-[url('icons/pdf.png')] bg-contain bg-center bg-no-repeat text-[10px] font-medium text-gray-700"
+                ></div>
+              </span>
+            </div>
+
+            <div
+              class="grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+            >
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Status
+                </p>
+                <p class="mt-3 text-sm font-medium text-[#0C0C0D]">En cours</p>
+              </div>
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Priorité
+                </p>
+                <p class="mt-3 font-['Arimo'] text-base text-[#000000]">Elevé</p>
+              </div>
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Estimation du délai
+                </p>
+                <p class="mt-3 font-['Arimo'] text-base text-[#000000]">
+                  2-3 jours
+                </p>
+              </div>
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Position dans la file d’attente
+                </p>
+                <p class="mt-3 font-['Arimo'] text-base text-[#000000]">#3</p>
+              </div>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Type
+                </p>
+                <p class="mt-3 text-sm font-medium text-[#0C0C0D]">
+                  Facturation
+                </p>
+              </div>
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Vu par l’admin
+                </p>
+                <p class="mt-3 font-['Arimo'] text-base text-[#000000]">Yes</p>
+              </div>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Date de création
+                </p>
+                <p class="mt-3 font-['Arimo'] text-base text-[#000000]">
+                  15/10/2025 01:00:00
+                </p>
+              </div>
+              <div
+                class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+              >
+                <p
+                  class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+                >
+                  Dernière modification
+                </p>
+                <p class="mt-3 font-['Arimo'] text-base text-[#000000]">
+                  19/10/2025 01:00:00
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="rounded-[10px] border border-[#000000] px-[12.8px] pt-[12.8px] pb-[0.8px]"
+            >
+              <p
+                class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+              >
+                Tags
+              </p>
+              <div class="mt-3 flex flex-wrap gap-3">
+                <span
+                  class="rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-4 py-2 text-sm font-semibold text-black"
+                  >Facturation</span
+                >
+                <span
+                  class="rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-4 py-2 text-sm font-semibold text-black"
+                  >Urgent</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="rounded-[10px] border border-[#000000] px-[16.8px] pt-[16.8px] pb-[0.8px]"
+            >
+              <p
+                class="text-[12px] font-[700] leading-[16px] tracking-[0.05em] text-[#4A5568]"
+              >
+                Description
+              </p>
+              <p class="mt-3 text-sm font-medium text-[#0C0C0D]">
+                Ma facture du mois dernier contient des erreurs de calcul
+              </p>
+            </div>
+          </section>
+
+          <!-- Timeline -->
+          <section
+            class="w-full max-w-[992px] rounded-[20px] border border-black/10 bg-white px-[24.8px] pt-[24.8px] pb-[16px]"
+          >
+            <h2 class="font-['Arimo'] text-xl text-black sm:text-2xl">
+              Progress Timeline
+            </h2>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <p class="font-['Arimo'] text-[16px] leading-[24px] text-black">
+                Global Progress
+              </p>
+              <span class="text-sm font-medium text-[#0C0C0D]">75%</span>
+            </div>
+            <div
+              class="mt-2 flex h-[24px] w-full max-w-[942.4px] items-center rounded-[10px] border border-[#AB1212] bg-[#FFFFFF] px-[0.8px]"
+            >
+              <div
+                class="h-[22.4px] w-[75%] rounded-[10px] bg-[#33B26B]"
+              ></div>
+            </div>
+
+            <div class="mt-6 space-y-[16px]">
+              <!-- steps -->
+              <article
+                class="flex flex-col gap-[16px] rounded-[10px] border border-[#000000] px-[16.8px] pt-[16.7999px] pb-[0.8px] sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-8 w-8 items-center justify-center rounded-full border border-black text-base text-[#1D1B20]"
+                  >
+                    ✓
+                  </div>
+                  <div>
+                    <p
+                      class="text-[12px] font-[700] tracking-[0.05em] text-[#4A5568]"
+                    >
+                      Claim recieved
+                    </p>
+                    <p class="text-sm font-medium text-[#0C0C0D]">
+                      At: 15/10/2025
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="inline-flex h-[36px] min-w-[120px] items-center justify-center rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-4 text-sm font-medium text-[#0C0C0D]"
+                  >Completed</span
+                >
+              </article>
+
+              <article
+                class="flex flex-col gap-[16px] rounded-[10px] border border-[#000000] px-[16.8px] pt-[16.8px] pb-[0.8px] sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-8 w-8 items-center justify-center rounded-full border border-black text-base text-[#1D1B20]"
+                  >
+                    ✓
+                  </div>
+                  <div>
+                    <p
+                      class="text-[12px] font-[700] tracking-[0.05em] text-[#4A5568]"
+                    >
+                      Currently being processed
+                    </p>
+                    <p class="text-sm font-medium text-[#0C0C0D]">
+                      At 17/10/2025
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="inline-flex h-[36px] min-w-[120px] items-center justify-center rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-4 text-sm font-medium text-[#0C0C0D]"
+                  >Completed</span
+                >
+              </article>
+
+              <article
+                class="flex flex-col gap-[16px] rounded-[10px] border border-[#000000] px-[16.8px] pt-[16.8px] pb-[0.8px] sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-8 w-8 items-center justify-center rounded-full border border-black text-base text-[#1D1B20]"
+                  >
+                    ✓
+                  </div>
+                  <div>
+                    <p
+                      class="text-[12px] font-[700] tracking-[0.05em] text-[#4A5568]"
+                    >
+                      Pending validation
+                    </p>
+                    <p class="text-sm font-medium text-[#0C0C0D]">
+                      At 19/10/2025
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="inline-flex h-[36px] min-w-[120px] items-center justify-center rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-4 text-sm font-medium text-[#0C0C0D]"
+                  >Completed</span
+                >
+              </article>
+
+              <article
+                class="flex flex-col gap-[16px] rounded-[10px] border border-[#000000] px-[16.8px] pt-[16.8px] pb-[0.8px] sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-8 w-8 items-center justify-center rounded-full border border-black text-sm font-medium text-[#0C0C0D]"
+                  >
+                    4
+                  </div>
+                  <div>
+                    <p
+                      class="text-[12px] font-[700] tracking-[0.05em] text-[#4A5568]"
+                    >
+                      Validation complete
+                    </p>
+                    <p class="text-sm font-medium text-[#0C0C0D]">Pending</p>
+                  </div>
+                </div>
+                <span
+                  class="inline-flex h-[36px] min-w-[120px] items-center justify-center rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-4 text-sm font-medium text-[#0C0C0D]"
+                  >Pending</span
+                >
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+

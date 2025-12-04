@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/claim_styles.css" />
+  </head>
+  <body class="min-h-screen bg-[#FFFFFF] text-[#000000]">
+    <div
+      class="flex min-h-screen w-full justify-center bg-[#FFFFFF] px-[20px] py-[10px]"
+    >
+      <div
+        class="flex w-full max-w-[1440px] flex-col items-center gap-[24px] font-['Inter']"
+      >
+        <!-- Header / Navbar (same as other pages) -->
+        <header
+          class="flex w-full max-w-[1290px] flex-col items-start gap-[10px] rounded-[30px] px-[10px] py-[10px]"
+        >
+          <div
+            class="flex w-full max-w-[1270px] flex-wrap items-center justify-between gap-6 rounded-[15px] bg-[#FFFFFF] px-[20px] py-[20px] shadow-[0_4px_4px_rgba(0,0,0,0.3)] backdrop-blur-[2px] md:flex-nowrap md:px-[59px]"
+          >
+            <div
+              class="flex w-full items-center justify-between gap-[40px]"
+            >
+              <!-- Left: university logo -->
+              <div
+                class="h-[60px] w-[120px] bg-[url('images/esprit.png')] bg-contain bg-center bg-no-repeat sm:h-[80px] sm:w-[140px] md:h-[108px] md:w-[153px]"
+              ></div>
+
+              <!-- Center: nav -->
+              <nav
+                class="flex flex-1 items-center justify-center gap-[40px] text-sm text-[#1E1E1E]"
+              >
+                <a href="#" class="font-['Poppins']">Accueil</a>
+                <a href="#" class="font-['Poppins']">Réclamations</a>
+                <a href="#" class="font-['Poppins']">Historique</a>
+                <a href="#" class="font-['Poppins']">Support Chat</a>
+              </nav>
+
+              <!-- Right: notification + user avatar -->
+              <div class="flex items-center gap-[15px]">
+                <button
+                  class="flex h-[39px] w-[39px] items-center justify-center rounded-full border border-[#F1F1F1] bg-white"
+                  aria-label="Notifications"
+                >
+                  <div
+                    class="flex h-[20px] w-[20px] items-center justify-center rounded bg-[url('icons/notif_bell.png')] bg-contain bg-center bg-no-repeat text-[10px] font-medium text-gray-700"
+                  ></div>
+                </button>
+                <div
+                  class="h-[36px] w-[36px] rounded-full bg-[url('images/user_avatar.jpg')] bg-cover bg-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main content -->
+        <main
+          class="flex w-full max-w-[1024px] flex-col gap-[24px] px-[10px] pb-[32px]"
+        >
+          <!-- Page title -->
+          <section class="mt-[32px]">
+            <h1
+              class="font-['Arimo'] text-[20px] font-[700] leading-[30px] text-[#000000]"
+            >
+              Notifications
+            </h1>
+          </section>
+
+          <!-- Notification list -->
+          <section class="flex flex-col gap-[24px]">
+            <!-- Notification 1 - highlighted -->
+            <article
+              class="flex flex-col gap-[16px] rounded-[10px] border border-[#000000] bg-[#E0E0E0] px-[24px] py-[20px] md:flex-row md:items-stretch md:justify-between"
+            >
+              <div class=" space-y-4 gap-[8px] md:max-w-[70%] px-[10px]">
+                <p class="text-sm text-[#000000]">
+                  Votre réclamation REC-001 est passée en statu “En validation”
+                </p>
+                <p class="text-xs text-[#000000]">Le 15/10/2025</p>
+                <button
+                  type="button"
+                  class="mt-[8px] inline-flex h-[32px] items-center justify-center  rounded-[8px] border border-[#000000] px-[12px] text-xs font-medium text-[#000000]"
+                >
+                  Voir Details
+                </button>
+              </div>
+              <div
+                class="flex items-start justify-end md:items-center md:justify-center  px-[10px]" 
+              >
+                <button
+                  type="button"
+                  class="inline-flex h-[45px] min-w-[120px] items-center justify-center rounded-[12px] border border-[#EE4248] bg-[#C90C0F] px-[20px] text-sm font-semibold text-white"
+                >
+                  Marquer Lu
+                </button>
+              </div>
+            </article>
+
+            <!-- Notification 2 -->
+            <article
+              class="flex flex-col gap-[16px] rounded-[10px] border border-[#000000] bg-[#FFFFFF] px-[24px] py-[20px] md:flex-row md:items-stretch md:justify-between"
+            >
+              <div class=" gap-[8px] md:max-w-[70%] px-[10px] space-y-4 " >
+                <p class="text-sm text-[#000000]">
+                  Un administrateur a consulté votre réclamation REC-001
+                </p>
+                <p class="text-xs text-[#000000]">Le 17/10/2025</p>
+                <button
+                  type="button"
+                  class="mt-[8px] inline-flex h-[32px] items-center justify-center rounded-[8px] border border-[#000000] px-[12px] text-xs font-medium text-[#000000]"
+                >
+                  Voir Details
+                </button>
+              </div>
+
+              <div
+                class="flex items-start justify-end md:items-center md:justify-center px-[10px] "
+              >
+                <button
+                  type="button"
+                  class="inline-flex h-[45px] min-w-[90px] items-center justify-center rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-[20px] text-sm font-semibold text-[#000000]"
+                >
+                  Lu
+                </button>
+              </div>
+            </article>
+
+            <!-- Notification 3 -->
+            <article
+              class="flex flex-col gap-[16px] rounded-[10px] border border-[#000000] bg-[#FFFFFF] px-[24px] py-[20px] md:flex-row md:items-stretch md:justify-between"
+            >
+              <div class=" gap-[8px] md:max-w-[70%]  px-[10px]  space-y-4 ">
+                <p class="text-sm text-[#000000]">
+                  Votre réclamation REC-003 a été traitée et résolue
+                </p>
+                <p class="text-xs text-[#000000]">Le 20/10/2025</p>
+                <button
+                  type="button"
+                  class="mt-[8px] inline-flex h-[32px] items-center justify-center rounded-[8px] border border-[#000000] px-[12px] text-xs font-medium text-[#000000]"
+                >
+                  Voir Details
+                </button>
+              </div>
+
+              <div
+                class="flex items-start justify-end md:items-center md:justify-center px-[10px]"
+              >
+                <button
+                  type="button"
+                  class="inline-flex h-[45px] min-w-[90px] items-center justify-center rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] px-[20px] text-sm font-semibold text-[#000000]"
+                >
+                  Lu
+                </button>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+
+

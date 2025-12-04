@@ -3905,6 +3905,10 @@ video {
     margin-top: 24px;
   }
 
+  .md\:ml-64 {
+    margin-left: 16rem;
+  }
+
   .md\:block {
     display: block;
   }

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esprit - Gestion des Réclamations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .sidebar-link.active { background-color: white; color: rgb(185, 28, 28); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    @media (max-width: 1024px) {
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+      .sidebar.open { transform: translateX(0); }
+      .main-content { margin-left: 0 !important; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+
+<div class="flex h-screen">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar w-80 bg-red-700 text-white flex flex-col fixed inset-y-0 left-0 z-50 lg:z-40 lg:relative lg:translate-x-0 transition-transform">
+    <div class="p-6 pt-8 lg:p-10 lg:pt-12 flex-shrink-0">
+      <div class="flex items-center justify-between mb-8">
+        <img src="logo.png" alt="Esprit" class="w-40 lg:w-56 drop-shadow-lg"
+             onerror="this.src='https://via.placeholder.com/240x100/FFFFFF/FF0000?text=ESPRIT'"/>
+        <button id="close-menu" class="lg:hidden text-white text-3xl">×</button>
+      </div>
+
+      <nav class="space-y-4">
+        <a href="#dashboard" class="sidebar-link block px-6 lg:px-10 py-4 rounded-3xl text-base lg:text-lg font-medium transition hover:bg-red-800 active">
+          Tableau de bord
+        </a>
+        <a href="#list" class="sidebar-link block px-6 lg:px-10 py-4 rounded-3xl text-base lg:text-lg font-medium transition hover:bg-red-800">
+          List Complaints
+        </a>
+        <a href="#history" class="sidebar-link block px-6 lg:px-10 py-4 rounded-3xl text-base lg:text-lg font-medium transition hover:bg-red-800">
+          Historique
+        </a>
+      </nav>
+    </div>
+
+    <div class="flex-1"></div>
+    <div class="p-6 lg:p-10 text-center flex-shrink-0">
+      <p class="text-xs lg:text-sm opacity-90">© 2025 Esprit</p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content flex-1 flex flex-col h-screen lg:ml-0">
+
+    <header class="bg-white border-b border-gray-200 px-4 lg:px-10 py-4 lg:py-6 flex items-center justify-between flex-shrink-0">
+      <div class="flex items-center gap-4">
+        <button id="open-menu" class="lg:hidden text-gray-700 text-2xl">Menu</button>
+        <h1 id="page-title" class="text-2xl lg:text-3xl font-bold text-gray-800">Tableau de bord</h1>
+      </div>
+      <div class="flex items-center gap-4 lg:gap-6">
+        <button class="bg-red-600 hover:bg-red-700 text-white px-4 lg:px-8 py-2.5 lg:py-3 rounded-full font-medium text-sm lg:text-base shadow-md transition">
+          Nouvelle réclamation
+        </button>
+        <button class="relative">
+          <i class="far fa-bell text-xl lg:text-2xl text-red-600"></i>
+          <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">3</span>
+        </button>
+        <button><i class="fas fa-cog text-xl lg:text-2xl text-gray-600"></i></button>
+        <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700 text-sm lg:text-base">WJ</div>
+      </div>
+    </header>
+
+    <!-- TABLEAU DE BORD - TALLER GRAPH -->
+    <main id="dashboard" class="page active flex-1 overflow-y-auto p-6 lg:p-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+          <div class="bg-white rounded-3xl shadow-lg p-6 lg:p-10 text-center">
+            <h3 class="text-4xl lg:text-6xl font-bold text-red-600">30</h3>
+            <p class="text-lg lg:text-xl text-gray-600 mt-3">En attente</p>
+          </div>
+          <div class="bg-white rounded-3xl shadow-lg p-6 lg:p-10 text-center">
+            <h3 class="text-4xl lg:text-6xl font-bold text-red-600">90</h3>
+            <p class="text-lg lg:text-xl text-gray-600 mt-3">En cours</p>
+          </div>
+          <div class="bg-white rounded-3xl shadow-lg p-6 lg:p-10 text-center">
+            <h3 class="text-4xl lg:text-6xl font-bold text-red-600">200</h3>
+            <p class="text-lg lg:text-xl text-gray-600 mt-3">Résolue</p>
+          </div>
+        </div>
+
+        <!-- GRAPH -->
+        <div class="bg-white rounded-3xl shadow-lg p-6 lg:p-8">
+          <canvas id="complaintsChart" class="w-full h-80 lg:h-screen max-h-screen"></canvas>
+        </div>
+      </div>
+    </main>
+
+    <!-- LIST COMPLAINTS -->
+    <main id="list" class="page flex-1 overflow-y-auto p-6 lg:p-10">
+      <div class="bg-white rounded-3xl shadow-lg">
+        <div class="p-6 lg:p-8 border-b border-gray-100">
+          <div class="relative max-w-full">
+            <input type="text" placeholder="Rechercher..." class="w-full pl-12 pr-4 py-4 bg-gray-100 rounded-full text-sm lg:text-base">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[800px]">
+            <thead class="bg-gray-50 text-xs lg:text-sm font-bold text-gray-500 uppercase">
+              <tr>
+                <th class="px-4 lg:px-8 py-4 text-left">Titre</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Email</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Nombre</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Priorité</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Statut</th>
+                <th class="px-4 lg:px-8 py-4 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 text-sm">
+              <!-- 8 ROWS -->
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Site ne charge pas</td><td class="px-4 lg:px-8 py-5 text-gray-600">ahmed@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">127</td><td class="px-4 lg:px-8 py-5 text-center text-red-600 font-medium">Élevée</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-red-100 text-red-700 px-3 lg:px-6 py-2 rounded-full text-xs">Urgent</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C001','Site ne charge pas','En cours')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Produit défectueux</td><td class="px-4 lg:px-8 py-5 text-gray-600">sarah.b@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">89</td><td class="px-4 lg:px-8 py-5 text-center text-orange-600 font-medium">Moyenne</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">En attente</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C002','Produit défectueux','En attente')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Facture erronée</td><td class="px-4 lg:px-8 py-5 text-gray-600">karim.m@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">34</td><td class="px-4 lg:px-8 py-5 text-center text-green-600 font-medium">Faible</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-green-100 text-green-700 px-3 lg:px-6 py-2 rounded-full text-xs">Résolu</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C003','Facture erronée','Résolu')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Service client lent</td><td class="px-4 lg:px-8 py-5 text-gray-600">noura.f@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">203</td><td class="px-4 lg:px-8 py-5 text-center text-red-600 font-medium">Élevée</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">En attente</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C004','Service client lent','En attente')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Retour non accepté</td><td class="px-4 lg:px-8 py-5 text-gray-600">youssef.k@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">67</td><td class="px-4 lg:px-8 py-5 text-center text-orange-600 font-medium">Moyenne</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-blue-100 text-blue-700 px-3 lg:px-6 py-2 rounded-full text-xs">En cours</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C005','Retour non accepté','En cours')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Paiement refusé</td><td class="px-4 lg:px-8 py-5 text-gray-600">amina.s@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">156</td><td class="px-4 lg:px-8 py-5 text-center text-red-600 font-medium">Élevée</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-red-100 text-red-700 px-3 lg:px-6 py-2 rounded-full text-xs">Urgent</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C006','Paiement refusé','Urgent')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Application bug</td><td class="px-4 lg:px-8 py-5 text-gray-600">omar.h@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">94</td><td class="px-4 lg:px-8 py-5 text-center text-orange-600 font-medium">Moyenne</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">En attente</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C007','Application bug','En attente')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Commande non reçue</td><td class="px-4 lg:px-8 py-5 text-gray-600">linda.r@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">312</td><td class="px-4 lg:px-8 py-5 text-center text-red-600 font-medium">Élevée</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">En attente</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C008','Commande non reçue','En attente')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="px-6 py-4 border-t flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600">
+          <div class="mb-3 sm:mb-0">Éléments par page <select class="ml-2 border rounded px-3 py-1"><option selected>8</option><option>10</option></select></div>
+          <div class="flex gap-2">
+            <button class="p-2 hover:bg-gray-100 rounded">Previous</button>
+            <button class="w-10 h-10 bg-red-600 text-white rounded font-bold">1</button>
+            <button class="p-2 hover:bg-gray-100 rounded">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- HISTORIQUE  8 ROWS -->
+    <main id="history" class="page flex-1 overflow-y-auto p-6 lg:p-10">
+      <div class="bg-white rounded-3xl shadow-lg">
+        <div class="p-6 lg:p-8 border-b border-gray-100">
+          <div class="relative max-w-full">
+            <input type="text" placeholder="Rechercher..." class="w-full pl-12 pr-4 py-4 bg-gray-100 rounded-full text-sm lg:text-base">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[800px]">
+            <thead class="bg-gray-50 text-xs lg:text-sm font-bold text-gray-500 uppercase">
+              <tr>
+                <th class="px-4 lg:px-8 py-4 text-left">Titre</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Email</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Nombre</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Priorité</th>
+                <th class="px-4 lg:px-8 py-4 text-left">Statut</th>
+                <th class="px-4 lg:px-8 py-4 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 text-sm">
+              <!-- 8 ROWS  -->
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Problème de livraison résolu</td><td class="px-4 lg:px-8 py-5 text-gray-600">mohamed.a@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">45</td><td class="px-4 lg:px-8 py-5 text-center text-green-600 font-medium">Faible</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C101','Problème de livraison résolu','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Retour accepté</td><td class="px-4 lg:px-8 py-5 text-gray-600">salma.b@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">23</td><td class="px-4 lg:px-8 py-5 text-center text-orange-600 font-medium">Moyenne</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C102','Retour accepté','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Paiement remboursé</td><td class="px-4 lg:px-8 py-5 text-gray-600">ali.h@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">67</td><td class="px-4 lg:px-8 py-5 text-center text-green-600 font-medium">Faible</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C103','Paiement remboursé','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Compte réactivé</td><td class="px-4 lg:px-8 py-5 text-gray-600">rania.k@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">12</td><td class="px-4 lg:px-8 py-5 text-center text-green-600 font-medium">Faible</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C104','Compte réactivé','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Produit remplacé</td><td class="px-4 lg:px-8 py-5 text-gray-600">omar.s@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">89</td><td class="px-4 lg:px-8 py-5 text-center text-orange-600 font-medium">Moyenne</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C105','Produit remplacé','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Support technique</td><td class="px-4 lg:px-8 py-5 text-gray-600">ines.m@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">156</td><td class="px-4 lg:px-8 py-5 text-center text-red-600 font-medium">Élevée</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C106','Support technique','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Commande livrée</td><td class="px-4 lg:px-8 py-5 text-gray-600">yassine.t@esprit.tn</td><td class="px-4 lg:px-8 py-5 text-center">234</td><td class="px-4 lg:px-8 py-5 text-center text-orange-600 font-medium">Moyenne</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C107','Commande livrée','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+              <tr class="hover:bg-gray-50"><td class="px-4 lg:px-8 py-5 font-medium">Problème résolu</td><td class="px-4 lg:px-8 py-5 text-gray-600">nadia.r@gmail.com</td><td class="px-4 lg:px-8 py-5 text-center">78</td><td class="px-4 lg:px-8 py-5 text-center text-green-600 font-medium">Faible</td><td class="px-4 lg:px-8 py-5 text-center"><span class="bg-yellow-100 text-yellow-700 px-3 lg:px-6 py-2 rounded-full text-xs">Terminée</span></td><td class="px-4 lg:px-8 py-5 text-center space-x-3 lg:space-x-5 text-gray-400"><button onclick="openDetails('C108','Problème résolu','Terminée')"><i class="far fa-eye hover:text-blue-600"></i></button><i class="far fa-edit hover:text-green-600"></i><i class="far fa-trash-alt hover:text-red-600"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="px-6 py-4 border-t flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600">
+          <div class="mb-3 sm:mb-0">Éléments par page <select class="ml-2 border rounded px-3 py-1"><option selected>8</option><option>10</option></select></div>
+          <div class="flex gap-2">
+            <button class="p-2 hover:bg-gray-100 rounded">Previous</button>
+            <button class="w-10 h-10 bg-red-600 text-white rounded font-bold">1</button>
+            <button class="p-2 hover:bg-gray-100 rounded">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- DETAILS PAGE -->
+    <main id="details" class="page flex-1 overflow-y-auto p-6 lg:p-10">
+      <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-8 lg:p-12">
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-8">Informations sur la plainte</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div>
+            <p class="text-gray-500 text-sm">Id de réclamation</p>
+            <p id="detail-id" class="text-2xl lg:text-3xl font-bold text-gray-800">C001</p>
+            <p class="text-red-600 font-semibold mt-4">Priorité haute</p>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-gray-500 text-sm">Description du boutique</p>
+            <p class="mt-3 text-gray-700 leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur. Cursus sagittis pretium diam pretium aliquet malesuada...
+            </p>
+          </div>
+          <div>
+            <p class="text-gray-500 text-sm">Titre</p>
+            <p id="detail-title" class="text-2xl lg:text-3xl font-bold text-gray-800">Site ne charge pas</p>
+            <p class="text-blue-600 font-semibold mt-6">Statut actuel <span id="detail-status" class="font-bold">En cours</span></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<!-- CHAT BUBBLE -->
+<div class="fixed bottom-6 left-6 lg:bottom-8 lg:left-8 z-50">
+  <button class="relative w-14 h-14 lg:w-16 lg:h-16 bg-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition">
+    <i class="fas fa-comment-dots text-2xl lg:text-3xl text-red-700"></i>
+    <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center">3</span>
+  </button>
+</div>
+
+<script>
+  // Mobile menu + navigation + details + chart (same as before)
+  document.getElementById('open-menu').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('overlay').classList.remove('hidden');
+  });
+  document.getElementById('close-menu').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.add('hidden');
+  });
+  document.getElementById('overlay').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.add('hidden');
+  });
+
+  const links = document.querySelectorAll('.sidebar-link');
+  const pages = document.querySelectorAll('.page');
+  const title = document.getElementById('page-title');
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = link.getAttribute('href').substring(1);
+      links.forEach(l => l.classList.remove('bg-white', 'text-red-700', 'shadow-xl'));
+      link.classList.add('bg-white', 'text-red-700', 'shadow-xl');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(target).classList.add('active');
+      title.textContent = link.textContent.trim();
+      if (window.innerWidth < 1024) {
+        document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('overlay').classList.add('hidden');
+      }
+    });
+  });
+
+  function openDetails(id, titleText, status) {
+    document.getElementById('detail-id').textContent = id;
+    document.getElementById('detail-title').textContent = titleText;
+    document.getElementById('detail-status').textContent = status;
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById('details').classList.add('active');
+    title.textContent = 'Détails de la réclamation';
+    links.forEach(l => l.classList.remove('bg-white', 'text-red-700', 'shadow-xl'));
+  }
+
+  // TALL CHART
+  const ctx = document.getElementById('complaintsChart')?.getContext('2d');
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['4/18', '4/19', '4/20', '4/21', '4/22', '4/23', '4/24'],
+        datasets: [
+          { label: 'Résolue', data: [120, 110, 260, 130, 150, 120, 280], backgroundColor: '#dc2626' },
+          { label: 'En attente', data: [80, 60, 40, 80, 60, 100, 60], backgroundColor: '#1e40af' }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { beginAtZero: true, max: 300 } }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

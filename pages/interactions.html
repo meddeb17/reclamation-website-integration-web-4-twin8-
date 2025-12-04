@@ -1,0 +1,267 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historique des Interactions | ESPRIT - École Supérieure Privée</title>
+  <meta name="description" content="Consultez l'historique de vos interactions avec l'administration ESPRIT. Gérez vos demandes et suivez leur statut.">
+  <meta name="keywords" content="ESPRIT, historique, interactions, demandes, statut, administration">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Historique des Interactions | ESPRIT - École Supérieure Privée">
+  <meta property="og:description" content="Consultez l'historique de vos interactions avec l'administration ESPRIT. Gérez vos demandes et suivez leur statut.">
+  <link href='../css/main.css' rel='stylesheet'>
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fespritvir8365back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.10"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-white">
+  <div class="w-full h-auto relative">
+    <div class="w-full px-4 sm:px-6 md:px-8 lg:px-10 relative z-10">
+      <div class="w-full">
+        <header class="flex flex-col lg:flex-row justify-between items-center lg:items-center w-full py-4 sm:py-5 lg:py-6 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+          <div class="flex items-center mb-4 lg:mb-0">
+            <img src="../assets/images/img_pngegg_1.png" class="w-[76px] h-[41px] sm:w-[100px] sm:h-[54px] md:w-[130px] md:h-[70px] lg:w-[152px] lg:h-[82px]" alt="ESPRIT Logo" />
+          </div>
+          <div class="flex flex-col lg:flex-row justify-between items-center lg:items-center w-full lg:w-auto gap-4 lg:gap-6">
+            <button class="block lg:hidden p-2" aria-label="Open menu" onclick="toggleMobileMenu()">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+            <nav class="hidden lg:flex gap-4 sm:gap-6 md:gap-8 justify-center items-center w-auto" role="menubar">
+              <div class="relative group" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                <button class="flex gap-1 sm:gap-1.5 lg:gap-2 justify-center items-center text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold font-inter text-black hover:text-red-600 transition-colors">
+                  <span>Home</span>
+                  <img src="../assets/images/img_arrow_down.svg" class="w-[12px] h-[12px] md:w-[15px] md:h-[15px] lg:w-[18px] lg:h-[18px]" alt="dropdown arrow" />
+                </button>
+                <ul class="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[150px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50" role="menu">
+                  <li role="menuitem"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About ESPRIT</a></li>
+                  <li role="menuitem"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Programs</a></li>
+                  <li role="menuitem"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Campus Life</a></li>
+                </ul>
+              </div>
+              <div class="relative group" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                <button class="flex gap-1 sm:gap-1.5 lg:gap-2 justify-center items-center text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold font-inter text-black hover:text-red-600 transition-colors">
+                  <span>Submit Reclamation</span>
+                </button>
+                <ul class="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[180px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50" role="menu">
+                  <li role="menuitem"><a href="./reclamationsubmit.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Submit Reclamation</a></li>
+                  <li role="menuitem"><a href="./interactions.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Requests</a></li>
+                  <li role="menuitem"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Technical Support</a></li>
+                </ul>
+              </div>
+              <div class="relative group" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                <button class="flex gap-1 sm:gap-1.5 lg:gap-2 justify-center items-center text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold font-inter text-black hover:text-red-600 transition-colors">
+                  <span>CHATBOT</span>
+                  <img src="../assets/images/img_arrow_down.svg" class="w-[12px] h-[12px] md:w-[15px] md:h-[15px] lg:w-[18px] lg:h-[18px]" alt="dropdown arrow" />
+                </button>
+                <ul class="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[150px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50" role="menu">
+                  <li role="menuitem"><a href="./ESPRITVirtualChatbotAssistant.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Chat Assistant</a></li>
+                  <li role="menuitem"><a href="./ESPRITChatbotRatingPage.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Rate Chatbot</a></li>
+                </ul>
+              </div>
+              <button class="text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold font-inter text-black hover:text-red-600 transition-colors" role="menuitem">Help</button>
+            </nav>
+            <div class="flex gap-2 sm:gap-3 lg:gap-4 justify-center items-center w-auto">
+              <button class="text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold font-inter text-center text-black bg-[#fcfcfc] border border-[#b3b3b3] rounded-[12px] px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 hover:bg-gray-100 transition-colors">Login</button>
+              <button class="text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold font-inter text-center text-white bg-[#c90c0f] border border-[#ee4248] rounded-[12px] px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 hover:bg-red-700 transition-colors">Start Reclamation</button>
+            </div>
+          </div>
+          <nav class="lg:hidden hidden w-full mt-4 bg-white border-t pt-4" id="mobileMenu">
+            <div class="flex flex-col gap-4">
+              <a href="#" class="text-sm font-semibold text-black hover:text-red-600">Home</a>
+              <a href="./reclamationsubmit.html" class="text-sm font-semibold text-black hover:text-red-600">Submit Reclamation</a>
+              <a href="./ESPRITVirtualChatbotAssistant.html" class="text-sm font-semibold text-black hover:text-red-600">CHATBOT</a>
+              <a href="#" class="text-sm font-semibold text-black hover:text-red-600">Help</a>
+            </div>
+          </nav>
+        </header>
+        <section class="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 justify-start items-start w-full mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+          <h1 class="text-[28px] sm:text-[35px] md:text-[45px] lg:text-[56px] font-bold font-montserrat text-left text-[#d2232a] leading-[34px] sm:leading-[43px] md:leading-[55px] lg:leading-[69px] w-full mb-4 sm:mb-6 md:mb-8 lg:mb-10">Historique des Interactions</h1>
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-between items-start sm:items-center w-full mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+            <input type="text" id="searchInput" placeholder="Rechercher par mots clés..." class="flex-1 sm:flex-none sm:w-auto lg:w-[300px] text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#757575] bg-[#f5f5f5] rounded-[6px] px-4 sm:px-5 md:px-6 lg:px-8 py-3 sm:py-4 md:py-5 lg:py-6 border-none outline-none focus:ring-2 focus:ring-[#d2232a] focus:border-transparent transition-all duration-300" />
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 lg:gap-6 w-full sm:w-auto">
+              <button onclick="toggleStatusFilter()" class="text-[12px] sm:text-[14px] md:text-[16px] font-semibold font-inter text-center text-black bg-white border border-[#b3b3b3] rounded-[6px] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6 hover:bg-gray-100 transition-colors">Filtrer par statut</button>
+              <button onclick="sortByRecent()" class="text-[12px] sm:text-[14px] md:text-[16px] font-semibold font-inter text-center text-black bg-white border border-[#b3b3b3] rounded-[6px] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6 hover:bg-gray-100 transition-colors">Les plus récentes</button>
+              <button onclick="exportToCSV()" class="text-[12px] sm:text-[14px] md:text-[16px] font-bold font-inter text-center text-white bg-[#d2232a] rounded-[6px] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6 hover:bg-[#b01e24] transition-colors shadow-lg hover:shadow-xl">Exporter CSV</button>
+            </div>
+          </div>
+          <div class="w-full overflow-x-auto mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+            <table class="w-full border-collapse bg-white rounded-[6px] overflow-hidden shadow-[0px_2px_8px_#b400000a]">
+              <thead>
+                <tr class="bg-[#d2232a]">
+                  <th class="text-[12px] sm:text-[14px] md:text-[16px] font-bold font-montserrat text-left text-white px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Date</th>
+                  <th class="text-[12px] sm:text-[14px] md:text-[16px] font-bold font-montserrat text-left text-white px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Requête</th>
+                  <th class="text-[12px] sm:text-[14px] md:text-[16px] font-bold font-montserrat text-left text-white px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Réponse</th>
+                  <th class="text-[12px] sm:text-[14px] md:text-[16px] font-bold font-montserrat text-left text-white px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Statut</th>
+                </tr>
+              </thead>
+              <tbody id="interactionsTableBody">
+                <tr class="border-b border-[#eeeeee] hover:bg-[#f5f5f5] transition-colors">
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">25-11-19 10:02</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Je souhaite changer d'option cette année.</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Votre demande est en cours d'examen.</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">
+                    <span class="inline-block px-3 sm:px-4 md:px-5 lg:px-6 py-1 sm:py-2 rounded-full text-[10px] sm:text-[12px] md:text-[14px] font-semibold bg-yellow-200 text-yellow-800">En cours</span>
+                  </td>
+                </tr>
+                <tr class="border-b border-[#eeeeee] hover:bg-[#f5f5f5] transition-colors">
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">25-11-19 09:15</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Comment récupérer mes résultats d'examen ?</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Nous traiterons votre demande prochainement.</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">
+                    <span class="inline-block px-3 sm:px-4 md:px-5 lg:px-6 py-1 sm:py-2 rounded-full text-[10px] sm:text-[12px] md:text-[14px] font-semibold bg-orange-200 text-orange-800">Ouvert</span>
+                  </td>
+                </tr>
+                <tr class="border-b border-[#eeeeee] hover:bg-[#f5f5f5] transition-colors">
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">25-11-18 14:32</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">Quels sont les horaires d'ouverture de la scolarité ?</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">La scolarité est ouverte de 8h à 17h du lundi au vendredi.</td>
+                  <td class="text-[12px] sm:text-[14px] md:text-[16px] font-normal font-montserrat text-left text-[#222222] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 lg:py-6">
+                    <span class="inline-block px-3 sm:px-4 md:px-5 lg:px-6 py-1 sm:py-2 rounded-full text-[10px] sm:text-[12px] md:text-[14px] font-semibold bg-green-200 text-green-800">Clos</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <footer class="flex flex-col lg:flex-row justify-between items-start lg:items-start w-full mt-12 sm:mt-16 md:mt-20 lg:mt-24 px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 md:py-16 lg:py-20 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
+          <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 justify-start items-start w-full lg:w-[28%] h-auto bg-[#d9d9d94c] rounded-[40px] p-6 sm:p-8 md:p-10">
+            <h2 class="text-[18px] md:text-[20px] lg:text-[22px] font-bold font-inria-serif text-left text-[#c90c0f] leading-[22px] md:leading-[24px] lg:leading-[26px] tracking-[1px] w-full mb-2 sm:mb-3 md:mb-4">Contact</h2>
+            <p class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] w-full">Depuis 2003, ESPRIT façonne l'enseignement supérieur en combinant expertise académique, innovation et collaboration avec les acteurs technologiques. Fondée par trois universitaires, elle s'appuie sur une vision dynamique et une communauté engagée pour proposer des formations ancrées dans des valeurs solides, accompagnant chaque étudiant dans son développement.</p>
+          </div>
+          <div class="flex flex-col lg:flex-row justify-between items-start lg:items-start w-full lg:w-[64%] gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+            <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 justify-start items-start w-full lg:w-[22%] h-auto bg-[#d9d9d94c] rounded-[40px] p-6 sm:p-8 md:p-10">
+              <h3 class="text-[18px] md:text-[20px] lg:text-[22px] font-bold font-inria-serif text-left text-[#c90c0f] leading-[22px] md:leading-[24px] lg:leading-[26px] tracking-[1px] w-full mb-2 sm:mb-3 md:mb-4">À propos d'esprit</h3>
+              <ul class="flex flex-col gap-2.5 sm:gap-3 md:gap-3.5 justify-start items-start w-full">
+                <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Missions et Valeurs</a></li>
+                <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Histoire d'ESPRIT</a></li>
+                <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Gouvernance</a></li>
+                <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Le Plus d'ESPRIT</a></li>
+                <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Affiliation et accréditations</a></li>
+                <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Responsablité Sociétale</a></li>
+                <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Le réseau Honoris United</a></li>
+              </ul>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12 justify-start items-start w-full lg:w-[70%]">
+              <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 justify-start items-start w-full lg:w-[30%] h-auto bg-[#d9d9d94c] rounded-[40px] p-6 sm:p-8 md:p-10">
+                <h3 class="text-[18px] md:text-[20px] lg:text-[22px] font-bold font-inria-serif text-left text-[#c90c0f] leading-[22px] md:leading-[24px] lg:leading-[26px] tracking-[1px] w-full mb-2 sm:mb-3 md:mb-4">Nos programmes</h3>
+                <ul class="flex flex-col gap-2.5 sm:gap-3 md:gap-3.5 justify-start items-start w-full">
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Programme Ingénieur</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">BAC+3 : Bachelor</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">BAC+5 : Masters professionnels</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Programme Executive</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Classe Internationale</a></li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 justify-start items-start w-full lg:w-[35%] h-auto bg-[#d9d9d94c] rounded-[40px] p-6 sm:p-8 md:p-10">
+                <h3 class="text-[18px] md:text-[20px] lg:text-[22px] font-bold font-inria-serif text-left text-[#c90c0f] leading-[22px] md:leading-[24px] lg:leading-[26px] tracking-[1px] w-full mb-2 sm:mb-3 md:mb-4">Groupe ESPRIT</h3>
+                <ul class="flex flex-col gap-2.5 sm:gap-3 md:gap-3.5 justify-start items-start w-full">
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">ESPRIT Tunis</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">ESPRIT School of Business</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">ESPRIT PREPA</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">ESPRIT Monastir</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">ESPRIT Entreprise</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Centre de langue</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Career Center</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">Wall Street English</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">GEM-ESPRIT</a></li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 justify-start items-start w-full lg:w-[30%] h-auto bg-[#d9d9d94c] rounded-[40px] p-6 sm:p-8 md:p-10">
+                <h3 class="text-[18px] md:text-[20px] lg:text-[22px] font-bold font-inria-serif text-left text-[#c90c0f] leading-[22px] md:leading-[24px] lg:leading-[26px] tracking-[1px] w-full mb-2 sm:mb-3 md:mb-4">Contact</h3>
+                <ul class="flex flex-col gap-2.5 sm:gap-3 md:gap-3.5 justify-start items-start w-full">
+                  <li><a href="tel:+21670250000" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">(+216) 70 250 000</a></li>
+                  <li><a href="tel:+21671236483" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">(+216) 71 236 483</a></li>
+                  <li><a href="mailto:contact@esprit.tn" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">contact@esprit.tn</a></li>
+                  <li><a href="#" class="text-[9px] md:text-[10px] lg:text-[11px] font-normal font-inter text-left text-[#191919] leading-[18px] md:leading-[24px] lg:leading-[30px] hover:text-red-600 transition-colors">1, 2 rue André Ampère - 2083 - Pôle Technologique - El Ghazala.</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script>
+  function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.remove('hidden');
+    } else {
+      mobileMenu.classList.add('hidden');
+    }
+  }
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const tableRows = document.querySelectorAll('#interactionsTableBody tr');
+      tableRows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  }
+  function toggleStatusFilter() {
+    alert('Fonctionnalité de filtrage par statut - À implémenter');
+  }
+  function sortByRecent() {
+    const tableBody = document.getElementById('interactionsTableBody');
+    const rows = Array.from(tableBody.querySelectorAll('tr'));
+    rows.sort((a, b) => {
+      const dateA = a.cells[0].textContent.trim();
+      const dateB = b.cells[0].textContent.trim();
+      return dateB.localeCompare(dateA);
+    });
+    rows.forEach(row => tableBody.appendChild(row));
+  }
+  function exportToCSV() {
+    const table = document.querySelector('table');
+    const rows = table.querySelectorAll('tr');
+    let csv = [];
+    rows.forEach(row => {
+      const cols = row.querySelectorAll('th, td');
+      const rowData = [];
+      cols.forEach(col => {
+        const text = col.textContent.trim().replace(/\s+/g, ' ');
+        rowData.push('"' + text + '"');
+      });
+      csv.push(rowData.join(','));
+    });
+    const csvContent = csv.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'historique_interactions_' + new Date().toISOString().split('T')[0] + '.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href && href.length > 1) {
+        e.preventDefault();
+        try {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        } catch (error) {
+          console.warn('Invalid selector:', href);
+        }
+      }
+    });
+  });
+</script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

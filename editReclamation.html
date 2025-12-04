@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modifier une réclamation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', 'Arimo', sans-serif; }
+    .tag { @apply text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-3 py-1 rounded-full; }
+  </style>
+</head>
+<body class="bg-white min-h-screen">
+    <div class="bg-white rounded-3xl shadow-lg p-6 w-full ">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <img src="assetsAbdou/pngegg 1.png" alt="Logo" class="w-32 md:w-40 h-auto">
+
+            <nav class="flex flex-wrap items-center gap-4 text-sm font-normal text-ocean-dark">
+                <a href="">Acceuil</a>
+                <a href="reclamations.html" >Réclamations</a>
+                <a href="historique.html"  class="bg-[rgba(241,235,235,0.80)] shadow-md px-4 py-2 rounded-lg">Historique</a>
+                <a href="support.html">Support Chat</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="black">
+                        <path d="M10 21H14C14 22.1 13.1 23 12 23C10.9 23 10 22.1 10 21ZM21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19ZM17 11C17 8.2 14.8 6 12 6C9.2 6 7 8.2 7 11V18H17V11Z"/>
+                    </svg>
+                </div>
+                <img src="https://images.squarespace-cdn.com/content/v1/56799419df40f3a52654773e/1517445206687-CP76LXN0LL1KHLVU9YHA/classic+style+woman+social+profile+photo+executive+photos+nyc.JPG" alt="Avatar" class="w-9 h-9 rounded-full">
+            </div>
+        </div>
+    </div>
+
+<div class="container mx-auto px-4 py-8 max-w-5xl">
+
+
+
+  <h1 class="text-3xl font-normal text-black mb-8 text-center md:text-left">
+    Modifier une réclamation
+  </h1>
+
+  <!-- Real Form -->
+  <form class="bg-white border border-black rounded-xl p-6 md:p-10 space-y-8">
+
+    <!-- Titre -->
+    <div class="space-y-2">
+      <label class="text-xs font-bold uppercase tracking-wider text-gray-600">Titre de Réclamation</label>
+      <input type="text" name="title" value="Réclamation 1"
+             class="w-full border border-black rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-red-500"
+             required />
+    </div>
+
+    <!-- Type -->
+    <div class="space-y-2">
+      <label class="text-xs font-bold uppercase tracking-wider text-gray-600">Type</label>
+      <select name="type"
+              class="w-full border border-black rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-red-500">
+        <option>Facturation</option>
+        <option>Service client</option>
+        <option>Technique</option>
+        <option>Autre</option>
+      </select>
+    </div>
+
+    <!-- Dates (readonly) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="space-y-2">
+        <label class="text-xs font-bold uppercase tracking-wider text-gray-600">Date de création</label>
+        <input type="text" value="15/10/2025 01:00:00" readonly
+               class="w-full bg-secondry border border-black rounded-lg px-4 py-3 text-base" />
+      </div>
+      <div class="space-y-2">
+        <label class="text-xs font-bold uppercase tracking-wider text-gray-600">Dernière modification</label>
+        <input type="text" value="19/10/2025 01:00:00" readonly
+               class="w-full bg-secondry border border-black rounded-lg px-4 py-3 text-base" />
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="space-y-2">
+      <label class="text-xs font-bold uppercase tracking-wider text-gray-600">Description</label>
+      <textarea name="description" rows="4"
+                class="w-full border border-black rounded-lg px-4 py-3 text-base resize-none focus:outline-none focus:ring-2 focus:ring-red-500"
+                required>Ma facture du mois dernier contient des erreurs de calcul</textarea>
+    </div>
+
+    <!-- Tags -->
+    <div class="space-y-3">
+      <label class="text-xs font-bold uppercase tracking-wider text-gray-600">Tags</label>
+      <div class="border border-black rounded-lg px-4 py-4 flex flex-wrap items-center gap-3">
+        <span class="tag">#Tag 1</span>
+        <span class="tag">#Tag 2</span>
+        <span class="tag">#Tag 3</span>
+
+        <input type="text" placeholder="+ Ajouter un tag"
+               class="flex-1 min-w-[120px] border-b border-gray-400 focus:border-red-500 outline-none text-sm px-1"
+               onkeydown="if(event.key==='Enter'){addTag(this.value); this.value=''; event.preventDefault();}" />
+      </div>
+    </div>
+
+    <!-- File Upload -->
+    <div class="border-2 border-black rounded-xl p-8 text-center space-y-6">
+      <p class="text-xs font-bold uppercase tracking-wider text-gray-600">Joindre un fichier</p>
+
+      <!-- Current file -->
+      <div id="fileList" class="space-y-3">
+        <div class="flex items-center justify-between max-w-sm mx-auto bg-secondry rounded-lg px-4 py-2">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" viewBox="0 0 14 14" fill="black"><path d="M3.5 0H8.3125V0.875H3.5C3.26794 0.875..."/></svg>
+            <span class="text-sm">logo.jpg</span>
+          </div>
+          <button type="button" onclick="this.parentElement.remove()" class="text-red-600">X</button>
+        </div>
+      </div>
+
+      <label class="cursor-pointer">
+        <input type="file" name="attachments" multiple class="hidden"
+               onchange="handleFiles(this.files)" />
+        <div class="bg-primary text-white rounded-md px-6 py-3 inline-flex items-center gap-2 hover:bg-red-700 transition">
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="white"><path fill-rule="evenodd" d="M8.46999 2.19385C..."/></svg>
+          Sélectionner un fichier
+        </div>
+      </label>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+      <button type="submit"
+              class="bg-[#c90c0f] text-white font-semibold px-12 py-4 rounded-xl hover:bg-red-700 transition shadow-md">
+        Update request
+      </button>
+
+      <button type="button"
+              class="border border-secondry text-[#c90c0f] font-semibold px-12 py-4 rounded-md flex items-center justify-center gap-2 hover:bg-gray-50 transition">
+        <svg class="w-5 h-5" viewBox="0 0 16 16" fill="#C90C0F"><path fill-rule="evenodd" d="M3.52827 3.52876C..."/></svg>
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Tiny JS for tags & file preview (pure vanilla, no dependencies) -->
+<script>
+function addTag(value) {
+  if (!value.trim()) return;
+  const container = document.querySelector('[placeholder="+ Ajouter un tag"]').parentElement;
+  const span = document.createElement('span');
+  span.className = 'tag';
+  span.textContent = '#' + value.trim();
+  span.onclick = () => span.remove();
+  container.insertBefore(span, container.lastElementChild);
+}
+
+function handleFiles(files) {
+  const list = document.getElementById('fileList');
+  Array.from(files).forEach(file => {
+    const div = document.createElement('div');
+    div.className = 'flex items-center justify-between max-w-sm mx-auto bg-secondry rounded-lg px-4 py-2';
+    div.innerHTML = `
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4" viewBox="0 0 14 14" fill="black"><path d="M3.5 0H8.3125V0.875H3.5C3.26794 0.875..."/></svg>
+        <span class="text-sm">${file.name}</span>
+      </div>
+      <button type="button" class="text-red-600" onclick="this.parentElement.parentElement.remove()">X</button>
+    `;
+    list.appendChild(div);
+  });
+}
+</script>
+
+</body>
+</html>

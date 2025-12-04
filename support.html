@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détail Réclamation & Chat - Responsive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white min-h-screen">
+
+<div class="container mx-auto px-4 py-6 flex flex-col gap-8">
+
+  <!-- Header (same as previous page) -->
+    <div class="bg-white rounded-3xl shadow-lg p-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <img src="assetsAbdou/pngegg 1.png" alt="Logo" class="w-32 md:w-40 h-auto">
+
+            <nav class="flex flex-wrap items-center gap-4 text-sm font-normal text-ocean-dark">
+                <a href="">Acceuil</a>
+                <a href="reclamations.html" >Réclamations</a>
+                <a href="historique.html" >Historique</a>
+                <a href="support.html" class="bg-[rgba(241,235,235,0.80)] shadow-md px-4 py-2 rounded-lg">Support Chat</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="black">
+                        <path d="M10 21H14C14 22.1 13.1 23 12 23C10.9 23 10 22.1 10 21ZM21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19ZM17 11C17 8.2 14.8 6 12 6C9.2 6 7 8.2 7 11V18H17V11Z"/>
+                    </svg>
+                </div>
+                <img src="https://images.squarespace-cdn.com/content/v1/56799419df40f3a52654773e/1517445206687-CP76LXN0LL1KHLVU9YHA/classic+style+woman+social+profile+photo+executive+photos+nyc.JPG" alt="Avatar" class="w-9 h-9 rounded-full">
+            </div>
+        </div>
+    </div>
+<div class="bg-[#f2f0f0] border border-black rounded-xl p-6 md:p-8 flex flex-col gap-6">
+      <h2 class="text-black text-xl font-normal">Timeline de progression de la dernière réclamation</h2>
+
+      <!-- Global Progress -->
+      <div class="flex flex-col gap-2">
+        <div class="flex justify-between">
+          <span class="text-base">Global Progress</span>
+          <span class="text-sm font-medium">100%</span>
+        </div>
+        <div class="bg-white border border-[#ab1212] rounded-lg overflow-hidden">
+          <div class="bg-[#33b26b] h-6 w-full"></div>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="space-y-4">
+        <!-- Step 1 -->
+        <div class="bg-white border border-black rounded-lg p-4 flex items-center gap-4">
+          <div class="bg-secondry border border-black rounded-full w-10 h-10 flex items-center justify-center">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="black"><path d="M10 16.4L6 12.4L7.4 11L10 13.6L16.6 7L18 8.4L10 16.4Z"/></svg>
+          </div>
+          <div class="flex-1">
+            <div class="text-xs font-bold uppercase tracking-wider text-gray-600">Claim received</div>
+            <div class="text-sm">At: 15/10/2025</div>
+          </div>
+          <div class="bg-secondry border border-[#b3b3b3] rounded-xl px-4 py-2 text-sm">Completed</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white border border-black rounded-lg p-4 flex items-center gap-4">
+          <div class="bg-secondry border border-black rounded-full w-10 h-10 flex items-center justify-center">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="black"><path d="M10 16.4L6 12.4L7.4 11L10 13.6L16.6 7L18 8.4L10 16.4Z"/></svg>
+          </div>
+          <div class="flex-1">
+            <div class="text-xs font-bold uppercase tracking-wider text-gray-600">Currently being processed</div>
+            <div class="text-sm">At 17/10/2025</div>
+          </div>
+          <div class="bg-secondry border border-[#b3b3b3] rounded-xl px-4 py-2 text-sm">Completed</div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white border border-black rounded-lg p-4 flex items-center gap-4">
+          <div class="bg-secondry border border-black rounded-full w-10 h-10 flex items-center justify-center">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="black"><path d="M10 16.4L6 12.4L7.4 11L10 13.6L16.6 7L18 8.4L10 16.4Z"/></svg>
+          </div>
+          <div class="flex-1">
+            <div class="text-xs font-bold uppercase tracking-wider text-gray-600">Validation complete</div>
+            <div class="text-sm">At: 18/10/2025</div>
+          </div>
+          <div class="bg-secondry border border-[#b3b3b3] rounded-xl px-4 py-2 text-sm">Completed</div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Main Content: Timeline + Chat Side by Side (2 columns on lg+) -->
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+
+    
+    <!-- Right: Chat with Admin -->
+    <div class="bg-[#f2f0f0] border border-black rounded-xl shadow-md flex flex-col h-[680px] md:h-auto">
+      <div class="flex-1 p-6 overflow-y-auto space-y-8">
+        <!-- Admin Message 1 -->
+        <div class="flex gap-3">
+          <div class="text-xs uppercase text-black opacity-60">Admin</div>
+        </div>
+        <div class="bg-secondry rounded-2xl p-5 max-w-xs md:max-w-md">
+          <p class="text-sm">message admin</p>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end">
+          <div class="bg-secondry rounded-2xl p-5 max-w-xs md:max-w-md text-left">
+            <p class="text-sm">message utilisateur</p>
+          </div>
+        </div>
+
+        <!-- Admin Reply -->
+        <div class="bg-secondry rounded-2xl p-5 max-w-xs md:max-w-md">
+          <p class="text-sm">reponse admin</p>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="p-4 border-t border-black/30">
+        <div class="bg-secondry border border-black/30 rounded-lg flex items-center justify-between px-4 py-3">
+          <input type="text" placeholder="ecrire votre message" class="bg-transparent outline-none flex-1 text-sm">
+          <svg class="w-9 h-9" viewBox="0 0 36 36" fill="none"><path d="M34.8517 17.4801L1.24235 0.629246C1.10575 0.560942..." fill="black" fill-opacity="0.5"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Chatbot Assistant (below on mobile, side-by-side on xl+) -->
+    <div class="bg-[#f2f0f0] border border-black rounded-xl shadow-md flex flex-col h-[680px] xl:h-auto">
+      <div class="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-8">
+        <svg class="w-16 h-16" viewBox="0 0 50 50" fill="black">
+          <path d="M14.5833 22.2429C14.5833 22.2429 15.388 29.3903 18.5222 32.373C21.6563 35.3557 29.1667 36.1215 29.1667 36.1215C29.1667 36.1215 21.6563 36.8872 18.5222 39.87C15.388 42.8527 14.5833 50 14.5833 50C14.5833 50 13.7787 42.8527 10.6445 39.87C7.51033 36.8872 0 36.1215 0 36.1215C0 36.1215 7.51033 35.3557 10.6445 32.373C13.7787 29.3903 14.5833 22.2429 14.5833 22.2429Z"/>
+          <path d="M35.4173 10.4604C35.4173 10.4604 36.222 17.6078 39.3561 20.5905C42.4903 23.5733 50.0007 24.339 50.0007 24.339C50.0007 24.339 42.4903 25.1048 39.3561 28.0875C36.222 31.0702 35.4173 38.2176 35.4173 38.2176C35.4173 38.2176 34.6127 31.0702 31.4785 28.0875C28.3443 25.1048 20.834 24.339 20.834 24.339C20.834 24.339 28.3443 23.5733 31.4785 20.5905C34.6127 17.6078 35.4173 10.4604 35.4173 10.4604Z"/>
+          <path d="M14.5833 0C14.5833 0 15.388 7.14737 18.5222 10.1301C21.6563 13.1128 29.1667 13.8786 29.1667 13.8786C29.1667 13.8786 21.6563 14.6443 18.5222 17.627C15.388 20.6098 14.5833 27.7571 14.5833 27.7571C14.5833 27.7571 13.7787 20.6098 10.6445 17.627C7.51033 14.6443 0 13.8786 0 13.8786C0 13.8786 7.51033 13.1128 10.6445 10.1301C13.7787 7.14737 14.5833 0 14.5833 0Z"/>
+        </svg>
+        <h3 class="text-xl font-normal text-black">N’hésitez pas à poser vos questions !</h3>
+      </div>
+
+      <!-- Suggested Questions -->
+      <div class="p-6 space-y-4">
+        <div class="bg-secondry border border-[#f0eded] rounded-lg p-4 text-sm text-left">
+          Que puis-je te demander de faire ?
+        </div>
+        <div class="bg-secondry border border-[#f0eded] rounded-lg p-4 text-sm text-left">
+          Quels documents dois-je fournir ?
+        </div>
+        <div class="bg-secondry border border-[#f0eded] rounded-lg p-4 text-sm text-left">
+          Peux-tu m’expliquer comment fonctionne la procédure ?
+        </div>
+      </div>
+
+      <!-- Bot Response Example -->
+      <div class="px-6 pb-4">
+        <div class="text-xs uppercase text-black/60 mb-1">Chat bot</div>
+        <div class="bg-secondry border border-white rounded-lg p-4 text-sm">
+          Reponse du chat bot
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="p-4 border-t border-black/30">
+        <div class="bg-secondry border border-black/30 rounded-lg flex items-center justify-between px-4 py-3">
+          <input type="text" placeholder="Posez-moi toutes vos questions concernant votre réclamation" class="bg-transparent outline-none flex-1 text-sm">
+          <svg class="w-9 h-9" viewBox="0 0 36 36" fill="none"><path d="M34.8517 17.4801L1.24235 0.629246..." fill="black" fill-opacity="0.5"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
